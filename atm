@@ -1,5 +1,5 @@
 import java.util.Scanner;
-//ATM Machine Interface using Class ATM & BankAccount which includes mothods like Deposite,Withdraw & Balancecheck
+
 class ATM 
 {
     private BankAccount acc;
@@ -13,11 +13,11 @@ class ATM
         boolean running= true;
         while(running)
         {
-          System.out.println("------WELCOME TO ATM------");
-          System.out.println("     1. Check Balance ");
-          System.out.println("     2. Deposite ");
-          System.out.println("     3. Withdraw ");
-          System.out.println("     4. Exit ");
+          System.out.println("WELCOME TO ATM");
+          System.out.println("1. Check Balance ");
+          System.out.println("2. Deposite ");
+          System.out.println("3. Withdraw ");
+          System.out.println("4. Exit ");
           System.out.print("Enter your choice: ");
           
           int opt = sc.nextInt();
