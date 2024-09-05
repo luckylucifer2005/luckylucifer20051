@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class CurrencyConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Exchange rates (example rates; replace with real-time data)
+        double usdToEur = 0.85; // 1 USD to EUR
+        double usdToInr = 74.50; // 1 USD to INR
+        double eurToUsd = 1.18; // 1 EUR to USD
+        double eurToInr = 88.00; // 1 EUR to INR
+        double inrToUsd = 0.013; // 1 INR to USD
+        double inrToEur = 0.011; // 1 INR to EUR
+
+        System.out.println("Currency Converter");
+        System.out.println("Select the currency you want to convert from:");
+        System.out.println("1. USD");
+        System.out.println("2. EUR");
+        System.out.println("3. INR");
+        int fromCurrency = scanner.nextInt();
+
+        System.out.println("Select the currency you want to convert to:");
+        System.out.println("1. USD");
+        System.out.println("2. EUR");
+        System.out.println("3. INR");
+        int toCurrency = scanner.nextInt();
+
+        System.out.println("Enter the amount to convert:");
+        double amount = scanner.nextDouble();
+        double convertedAmount = 0;
+
+        // Conversion logic
+        switch (fromCurrency) {
+            case 1: // From USD
+                if (toCurrency == 2) {
+                    convertedAmount = amount * usdToEur;
+                } else if (toCurrency == 3) {
+                    convertedAmount = amount * usdToInr;
+                } else {
+                    convertedAmount = amount; // USD to USD
+                }
+                break;
+            case 2: // From EUR
+                if (toCurrency == 1) {
+                    convertedAmount = amount * eurToUsd;
+                } else if (toCurrency == 3) {
+                    convertedAmount = amount * eurToInr;
+                } else {
+                    convertedAmount = amount; // EUR to EUR
+                }
+                break;
+            case 3: // From INR
+                if (toCurrency == 1) {
+                    convertedAmount = amount * inrToUsd;
+                } else if (toCurrency == 2) {
+                    convertedAmount = amount * inrToEur;
+                } else {
+                    convertedAmount = amount; // INR to INR
+                }
+                break;
+            default:
+                System.out.println("Invalid selection");
+                return;
+        }
+
+        System.out.printf("Converted amount: %.2f%n", convertedAmount);
+    }
+}
